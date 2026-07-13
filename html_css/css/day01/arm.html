@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Armstrong Numbers (1 to 10000)</title>
+</head>
+<body>
+
+<h2>Armstrong Numbers from 1 to 10000</h2>
+<button onclick="printArmstrong()">Show Numbers</button>
+
+<p id="result"></p>
+
+<script>
+function printArmstrong() {
+    let output = "";
+
+    for (let num = 1; num <= 10000; num++) {
+        let original = num;
+        let temp = num;
+        let digits = original.toString().length;
+        let sum = 0;
+
+        while (temp > 0) {
+            let digit = temp % 10;
+            sum += digit ** digits;
+            temp = Math.floor(temp / 10);
+        }
+
+        if (sum === original) {
+            output += original + " ";
+        }
+    }
+
+    document.getElementById("result").innerHTML = output;
+}
+</script>
+
+</body>
+</html>
